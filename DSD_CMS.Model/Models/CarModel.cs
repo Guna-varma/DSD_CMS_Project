@@ -12,6 +12,7 @@ namespace DSD_CMS.Model.Models
     public class CarModel
     {
         [Key]
+        [DisplayName("Id")]
         [Required]
         public int Id { get; set; }
 

@@ -11,6 +11,8 @@ namespace DSD_CMS.DataAccess.Repository.IRepository
     public interface IUnitOfWork
     {
         ICarModelRepository CarModel { get; }
+        IInsideInventoryRepository InsideInventory { get; }
+
 
         void Save();
     }

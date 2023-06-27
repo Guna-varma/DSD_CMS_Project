@@ -32,97 +32,88 @@
 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
 
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav me-auto" style="margin-left:20px;">
                         
                         @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
                         </li>*@
 
-                        <li class="nav-item dropdown">
-
+                        <li class="nav-item dropdown" style="margin-left:20px;">
                             <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Manage
                             </a>
-
                             <ul class="dropdown-menu">
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="Customer" asp-controller="CarModel" asp-action="Index">Car Model</a>
                                 </li>
-                            </ul>
+                                
+                                 <li class="nav-item" >
+                                    <a class="nav-link text-dark" asp-area="Customer" asp-controller="Variant" asp-action="Index">Variant</a>
+                                </li>
 
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="Customer" asp-controller="InteractiveCheckSheets" asp-action="Index">Interactive CheckSheets</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="Customer" asp-controller="ApplicationImages" asp-action="Index">Application Images</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="Customer" asp-controller="InsideInventory" asp-action="Index">Inside Inventory</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="Customer" asp-controller="ServiceProduct" asp-action="Index">Service Product</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="Customer" asp-controller="FeedbackQuestions" asp-action="Index">Feedback Questions</a>
+                                </li>
+
+                            </ul>
                         </li>
 
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown" style="margin-left:20px;">
 
                             <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Dealers
                             </a>
 
                             <ul class="dropdown-menu">
+
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index"></a>
+                                    <a class="nav-link text-dark" asp-area="Customer" asp-controller="Dealers" asp-action="Index">Manage Dealers</a>
                                 </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="Customer" asp-controller="Showrooms" asp-action="Index">Manage Showrooms</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="Customer" asp-controller="Devices" asp-action="Index">Manage Devices</a>
+                                </li>
+
                             </ul>
 
                         </li>
 
-                        <li class="nav-item dropdown">
-
-                            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Users
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index"></a>
-                                </li>
-                            </ul>
-
+                        <li class="nav-item" style="margin-left:20px;">
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Users" asp-action="Index">Users</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-
-                            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Extras
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index"></a>
-                                </li>
-                            </ul>
-
+                        <li class="nav-item" style="margin-left:20px;">
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Extras" asp-action="Index">Extras</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-
-                            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Settings
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index"></a>
-                                </li>
-                            </ul>
-
+                        <li class="nav-item" style="margin-left:20px;">
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Settings" asp-action="Index">Settings</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-
-                            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Health Card
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="Index"></a>
-                                </li>
-                            </ul>
-
+                        <li class="nav-item" style="margin-left:20px;">
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="HealthCard" asp-action="Index">Health Card</a>
                         </li>
 
-                        
                        @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>*@
@@ -158,3 +149,4 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
