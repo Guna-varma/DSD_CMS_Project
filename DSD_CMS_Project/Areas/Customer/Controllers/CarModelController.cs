@@ -49,6 +49,7 @@ namespace DSD_CMS_Project.Areas.Customer.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 string wweRootPath = env.WebRootPath;
 
                 // Process and save carImage
@@ -436,9 +437,25 @@ namespace DSD_CMS_Project.Areas.Customer.Controllers
                 TempData["success"] = "Car Model Created Successfully!";
 
                 return RedirectToAction("Index");
+
             }
 
             return View(carModel);
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int? id)
+        {
+            var carModelToBeDeleted = repo.CarModel.Get(u => u.Id == id);
+            if (carModelToBeDeleted == null)
+            {
+                return Json(new { success = false, message = "Error While Deleting" });
+            }
+
+            repo.CarModel.Remove(carModelToBeDeleted);
+            repo.Save();
+
+            return Json(new { success = true, message = "Deleted Successfully!" });
         }
 
     }

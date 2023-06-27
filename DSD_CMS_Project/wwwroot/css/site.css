@@ -73,6 +73,35 @@ body {
     font-size: 15px;
     color: black
 }
+
+/*.nav-item.dropdown:hover .nav-link {*/
+    /*color: white !important;*/
+    /*background-color: darkblue !important;
+    color:white !important;
+}*/
+
+.nav-item.dropdown .nav-link {
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 3px;
+}
+
+.nav-item.dropdown:hover > .nav-link,
+.nav-item.dropdown .dropdown-menu .nav-item:hover .nav-link {
+    color: white !important;
+    background-color: grey;
+}
+
+.nav-item .nav-link {
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 5px;
+}
+
+.nav-item:hover > .nav-link {
+    color: white;
+    background-color: grey;
+
+}
+
 /*---Body---*/
 .divider-text:before,
 .divider-text:after {
@@ -89,6 +118,7 @@ a.navbar-brand {
     text-align: center;
     word-break: break-all;
 }
+
 
 
 
@@ -158,7 +188,7 @@ html {
 }
 
 .bg-secondary {
-    background-color: #3A595C !important;
+    background-color: grey !important;
 }
 
 bg-success {
