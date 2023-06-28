@@ -23,5 +23,6 @@ namespace DSD_CMS.DataAccess.Repository
         {
             _db.usersList.Update(userDetails);
         }
+        
     }
 }
