@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace DSD_CMS.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class DbSetup : Migration
+    public partial class DbSetUp : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

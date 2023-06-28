@@ -19,7 +19,6 @@ namespace DSD_CMS.DataAccess.Repository
             _db = db;
         }
 
-
         public void Update(Variant variantDetails)
         {
             _db.variantList.Update(variantDetails);

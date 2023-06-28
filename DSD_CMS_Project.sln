@@ -5,11 +5,9 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSD_CMS_Project", "DSD_CMS_Project\DSD_CMS_Project.csproj", "{CDBC66C5-C30B-4F63-807B-680B149A4E0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSD_CMS.Model", "DSD_CMS.Model\DSD_CMS.Model.csproj", "{ED03556B-3CF1-4485-96B0-4FEBE8000A23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSD_CMS.Model", "DSD_CMS.Model\DSD_CMS.Model.csproj", "{ED03556B-3CF1-4485-96B0-4FEBE8000A23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSD_CMS.DataAccess", "DSD_CMS.DataAccess\DSD_CMS.DataAccess.csproj", "{6AB78CBB-BAFE-4EA5-B052-9C1E9EA47405}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSD_CMS.Utility", "DSD_CMS.Utility\DSD_CMS.Utility.csproj", "{5FD78502-E29D-453F-A2BD-E78513E2312D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSD_CMS.DataAccess", "DSD_CMS.DataAccess\DSD_CMS.DataAccess.csproj", "{6AB78CBB-BAFE-4EA5-B052-9C1E9EA47405}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{6AB78CBB-BAFE-4EA5-B052-9C1E9EA47405}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AB78CBB-BAFE-4EA5-B052-9C1E9EA47405}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AB78CBB-BAFE-4EA5-B052-9C1E9EA47405}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5FD78502-E29D-453F-A2BD-E78513E2312D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5FD78502-E29D-453F-A2BD-E78513E2312D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5FD78502-E29D-453F-A2BD-E78513E2312D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5FD78502-E29D-453F-A2BD-E78513E2312D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

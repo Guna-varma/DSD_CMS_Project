@@ -12,7 +12,6 @@ namespace DSD_CMS.DataAccess.Repository
     public class UnitOfWork : IUnitOfWork
     {
         public ApplicationDbContext _db;
-
         public IApplicationImagesRepository ApplicationImages {  get; set; }    
         public ICarModelRepository CarModel { get; set; }
         public IDealersRepository Dealers { get; set; }
@@ -21,7 +20,7 @@ namespace DSD_CMS.DataAccess.Repository
         public IFeedbackQuestionsRepository FeedbackQuestions { get; set; } 
         public IHealthCardRepository HealthCard { get; set; }
         public IInsideInventoryRepository InsideInventory { get; set; }
-        public IInteractiveCSRepository InteractiveCheckSheets { get; set; }
+        public IInteractiveCSRepository InteractiveCS { get; set; }
         public IServiceProductRepository ServiceProduct { get; set; }
         public ISettingsRepository Settings { get; set; }
         public IShowroomsRepository Showrooms { get; set; }
@@ -35,11 +34,12 @@ namespace DSD_CMS.DataAccess.Repository
             ApplicationImages = new ApplicationImagesRepository(_db);
             CarModel = new CarModelRepository(_db);
             Dealers = new DealersRepository(_db);
+            Devices = new DevicesRepository(_db);
             Extras = new ExtrasRepository(_db);
             FeedbackQuestions = new FeedbackQuestionsRepository(_db);
             HealthCard = new HealthCardRepository(_db);
             InsideInventory = new InsideInventoryRepository(_db);
-            InteractiveCheckSheets = new InteractiveCSRepository(_db);
+            InteractiveCS = new InteractiveCSRepository(_db);
             ServiceProduct = new ServiceProductRepository(_db);
             Settings = new SettingsRepository(_db); 
             Showrooms = new ShowroomsRepository(_db);
