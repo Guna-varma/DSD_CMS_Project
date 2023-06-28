@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace DSD_CMS.DataAccess.Repository
 {
+    //Guna Varma
     public class UsersRepository : Repository<Users>, IUsersRepository
     {
         public ApplicationDbContext _db;
@@ -23,5 +24,6 @@ namespace DSD_CMS.DataAccess.Repository
         {
             _db.usersList.Update(userDetails);
         }
+        
     }
 }

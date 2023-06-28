@@ -32,7 +32,7 @@ namespace DSD_CMS_Project.Areas.Customer.Controllers
 
             if (inCS == null)
             {
-                return NotFound("Department with id: " + id + " is not found!");
+                return NotFound("Interactive checksheets with id: " + id + " is not found!");
             }
 
             if (inCS == null && id.HasValue)
@@ -51,12 +51,12 @@ namespace DSD_CMS_Project.Areas.Customer.Controllers
                 if (inCS.Id > 0)
                 {
                     repo.InteractiveCS.Update(inCS);
-                    TempData["success"] = "Interactive Checksheets Updated Successfully!";
+                    TempData["success"] = "Updated Successfully!";
                 }
                 else
                 {
                     repo.InteractiveCS.Add(inCS);
-                    TempData["success"] = "Interactive Checksheets Created Successfully!";
+                    TempData["success"] = "Created Successfully!";
                 }
 
                 repo.Save();
