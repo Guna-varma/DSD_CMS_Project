@@ -127,8 +127,11 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="container"
+    @*style="max-width:fit-content"*@
+         style="max-width:1440px">
         <main role="main" class="pb-3">
+            @*@RenderBody()*@
             <partial name="_Notifier" />
             @RenderBody()
         </main>
@@ -149,4 +152,3 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-

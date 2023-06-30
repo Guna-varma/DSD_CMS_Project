@@ -1,0 +1,128 @@
+﻿@model DSD_CMS.Model.Models.CarModel
+
+<div class="card box-shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">@(Model.Id != 0 ? "Update" : "Create") Car Model</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body p-4">
+        <form method="post" class="row" enctype="multipart/form-data">
+            <input asp-for="Id" hidden />
+            <input asp-for="CarImage" hidden />
+            <input asp-for="FrontAngleImage" hidden />
+            <input asp-for="BackAngleImage" hidden />
+            <input asp-for="LeftAngleImage" hidden />
+            <input asp-for="RightAngleImage" hidden />
+            <input asp-for="FrontAngleLineImage" hidden />
+            <input asp-for="BackAngleLineImage" hidden />
+            <input asp-for="LeftAngleLineImage" hidden />
+            <input asp-for="RightAngleLineImage" hidden />
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="border p-3" style="color: black">
+                        <div class="row pb-2">
+                            <h3 class="text-primary">@(Model.Id != 0 ? "Update" : "Create") Car Model</h3>
+                            <hr />
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="ModelName" class="form-control border-0 shadow" />
+                            <label asp-for="ModelName" class="ms-2">Model Name</label>
+                            <span asp-validation-for="ModelName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="ModelCode" class="form-control border-0 shadow" />
+                            <label asp-for="ModelCode" class="ms-2">Model Code</label>
+                            <span asp-validation-for="ModelCode" class="text-danger"></span>
+                        </div>
+
+                        @{
+                            var imageFields = new[]
+                            {
+                        new { Name = "carIm", Label = "Car Image", Property = "CarImage" },
+                        new { Name = "frontAngleIm", Label = "Front Angle Image", Property = "FrontAngleImage" },
+                        new { Name = "backAngleIm", Label = "Back Angle Image", Property = "BackAngleImage" },
+                        new { Name = "leftAngleIm", Label = "Left Angle Image", Property = "LeftAngleImage" },
+                        new { Name = "rightAngleIm", Label = "Right Angle Image", Property = "RightAngleImage" },
+                        new { Name = "frontAngleLineIm", Label = "Front Angle Line Image", Property = "FrontAngleLineImage" },
+                        new { Name = "backAngleLineIm", Label = "Back Angle Line Image", Property = "BackAngleLineImage" },
+                        new { Name = "leftAngleLineIm", Label = "Left Angle Line Image", Property = "LeftAngleLineImage" },
+                        new { Name = "rightAngleLineIm", Label = "Right Angle Line Image", Property = "RightAngleLineImage" }
+                                        };
+                        }
+
+                        @foreach (var imageField in imageFields)
+                        {
+                            <div class="form-floating py-2 col-12">
+                                <input type="file" id="@imageField.Name" name="@imageField.Name" onchange="validateFile(this, '@imageField.Name-preview')" class="form-control border-0 shadow" />
+                                <label for="@imageField.Name" class="ms-2">@imageField.Label</label>
+                                <span asp-validation-for="@imageField.Property" class="text-danger"></span>
+                            </div>
+                            <div id="@imageField.Name-preview" class="mt-2">
+                                <img id="@imageField.Name-preview-img" class="img-fluid" src="" style="max-height: 200px;" />
+                            </div>
+                        }
+
+                        <div class="row pt-2">
+
+                            <div class="col-6 col-md-3">
+                                <button type="submit" class="btn btn-primary form-control">@((Model.Id != 0) ? "Update" : "Create")</button>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                                <a asp-controller="CarModel" asp-action="Index" class="btn btn-outline-secondary form-control">
+                                    Back to List
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+        function validateFile(input, previewId) {
+            const file = input.files[0];
+            const maxFileSize = 1 * 1024 * 1024; // 1MB
+            const allowedExtensions = /\.(png|jpe?g)$/i; // Regular expression for allowed file extensions
+
+            if (!allowedExtensions.test(file.name)) {
+                alert("Invalid file type. Please insert a .png or .jpg file.");
+                input.value = ""; // Reset the file input
+                return;
+            }
+
+            if (file.size > maxFileSize) {
+                alert("File size exceeds the maximum limit of 1MB.");
+                input.value = ""; // Reset the file input
+                return;
+            }
+
+            const preview = document.getElementById(previewId + "-img");
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                preview.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+    </script>
+
+
+}

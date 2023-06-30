@@ -1,0 +1,199 @@
+﻿@model DSD_CMS.Model.Models.Users
+
+<div class="card box-shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">@(Model.Id != 0 ? "Update" : "Create") User</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body p-4">
+        <form method="post" class="row" enctype="multipart/form-data">
+            <input asp-for="Id" hidden />
+            <div class="row">
+                <div class="col-12">
+                    <div class="border p-3" style="color: black">
+
+                        <div class="row pb-2">
+                            <h3 class="text-primary">@(Model.Id != 0 ? "Update" : "Create") User Details</h3>
+                            <hr />
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="UserName" class="form-control border-0 shadow" />
+                            <label asp-for="UserName" class="ms-2"></label>
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Password" type="password" class="form-control border-0 shadow" id="password" />
+                            <label asp-for="Password" class="ms-2"></label>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                            <span toggle="#password" class="toggle-password" style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);" onclick="togglePasswordVisibility(this)">
+                                <i class="bi bi-eye"></i>
+                            </span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="ConfirmPassword" type="password" class="form-control border-0 shadow" id="confirmPassword" />
+                            <label asp-for="ConfirmPassword" class="ms-2"></label>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            <span toggle="#confirmPassword" class="toggle-password" style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);" onclick="togglePasswordVisibility(this)">
+                                <i class="bi bi-eye"></i>
+                            </span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Email" class="form-control border-0 shadow" />
+                            <label asp-for="Email" class="ms-2"></label>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="FirstName" class="form-control border-0 shadow" />
+                            <label asp-for="FirstName" class="ms-2"></label>
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="LastName" class="form-control border-0 shadow" />
+                            <label asp-for="LastName" class="ms-2"></label>
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="DateOfBirth" type="date" class="form-control border-0 shadow" asp-format="{0:yyyy-MM-dd}" id="dateOfBirthInput" />
+                            <label asp-for="DateOfBirth" class="ms-2" style="cursor:pointer;"></label>
+                            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                        </div>
+
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                var dateOfBirthInput = document.getElementById('dateOfBirthInput');
+                                var currentDate = new Date().toISOString().split('T')[0];
+                                dateOfBirthInput.value = currentDate;
+                            });
+                        </script>
+
+                        <div class="form-floating py-2 col-12">
+                            <select asp-for="Gender" class="form-select border-0 shadow">
+                                <option value="">--Select Gender--</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="not-specified">Not to Say</option>
+                            </select>
+                            <label asp-for="Gender" class="ms-2"></label>
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Mobile" class="form-control border-0 shadow" />
+                            <label asp-for="Mobile" class="ms-2"></label>
+                            <span asp-validation-for="Mobile" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="LandLine" class="form-control border-0 shadow" />
+                            <label asp-for="LandLine" class="ms-2"></label>
+                            <span asp-validation-for="LandLine" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="AddressLine1" class="form-control border-0 shadow" />
+                            <label asp-for="AddressLine1" class="ms-2"></label>
+                            <span asp-validation-for="AddressLine1" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="AddressLine2" class="form-control border-0 shadow" />
+                            <label asp-for="AddressLine2" class="ms-2"></label>
+                            <span asp-validation-for="AddressLine2" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="City" class="form-control border-0 shadow" />
+                            <label asp-for="City" class="ms-2"></label>
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="State" class="form-control border-0 shadow" />
+                            <label asp-for="State" class="ms-2"></label>
+                            <span asp-validation-for="State" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Country" class="form-control border-0 shadow" />
+                            <label asp-for="Country" class="ms-2"></label>
+                            <span asp-validation-for="Country" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <select asp-for="UserRole" class="form-select border-0 shadow">
+                                <option value="">--Select User Role--</option>
+                                <option value="DFS Admin">DFS Admin</option>
+                                <option value="DFS Super Admin">DFS Super Admin</option>
+                                <option value="MBIL Admin">MBIL Admin</option>
+                                <option value="MBIL Sales">MBIL Sales</option>
+                                <option value="POC Rep">POC Rep</option>
+                                <option value="POS Application">POS Application</option>
+                                <option value="Sales Manager">Sales Manager</option>
+                                <option value="Sales Rep">Sales Rep</option>
+                                <option value="Showroom Admin">Showroom Admin</option>
+                            </select>
+                            <label asp-for="UserRole" class="ms-2"></label>
+                            <span asp-validation-for="UserRole" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="row pt-2">
+                            <div class="col-6 col-md-3">
+                                @if (Model.Id != 0)
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Update</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Create</button>
+
+                                }
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a asp-controller="Users" asp-action="Index" class="btn btn-outline-secondary form-control">
+                                    Back to List
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+    <script>
+        function togglePasswordVisibility(element) {
+            const passwordField = document.querySelector(element.getAttribute('toggle'));
+            const eyeIcon = element.querySelector('i');
+
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.classList.remove('bi-eye');
+                eyeIcon.classList.add('bi-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                eyeIcon.classList.remove('bi-eye-slash');
+                eyeIcon.classList.add('bi-eye');
+            }
+        }
+
+
+    </script>
+}

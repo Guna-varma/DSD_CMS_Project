@@ -1,0 +1,91 @@
+﻿@model DSD_CMS.Model.ViewModels.DevicesVm
+
+<div class="card box-shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">@(Model.Devices.Id != 0 ? "Update" : "Create") Device</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body p-4">
+        <form method="post" class="row" enctype="multipart/form-data">
+            <input asp-for="Devices.Id" hidden />
+            <div class="row">
+                <div class="col-12">
+                    <div class="border p-3" style="color: black">
+
+                        <div class="row pb-2">
+                            <h2 class="text-primary">@(Model.Devices.Id != 0 ? "Update" : "Create") Device</h2>
+                            <hr />
+                        </div>
+                        @*<div asp-validation-summary="All"></div>*@
+
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Devices.DeviceUDID" class="form-control border-0 shadow" />
+                            <label asp-for="Devices.DeviceUDID" class="ms-2"></label>
+                            <span asp-validation-for="Devices.DeviceUDID" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Devices.DeviceName" class="form-control border-0 shadow" />
+                            <label asp-for="Devices.DeviceName" class="ms-2"></label>
+                            <span asp-validation-for="Devices.DeviceName" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Devices.DeviceDescription" class="form-control border-0 shadow" />
+                            <label asp-for="Devices.DeviceDescription" class="ms-2"></label>
+                            <span asp-validation-for="Devices.DeviceDescription" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <select asp-for="@Model.Devices.DealerId" asp-items="@Model.DealersList" class="form-select border-0 shadow">
+                                <option disabled selected>--select Dealer--</option>
+                            </select>
+                            <label asp-for="Devices.DealerId" class="ms-2"></label>
+                            <span asp-validation-for="Devices.DealerId" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <select asp-for="@Model.Devices.ShowroomId" asp-items="@Model.ShowroomsList" class="form-select border-0 shadow">
+                                <option disabled selected>--select showroom--</option>
+                            </select>
+                            <label asp-for="Devices.ShowroomId" class="ms-2"></label>
+                            <span asp-validation-for="Devices.ShowroomId" class="text-danger"></span>
+                        </div>
+
+                        <div class="row pt-2">
+                            <div class="col-6 col-md-3">
+                                @if (Model.Devices.Id != 0)
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Update</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Create</button>
+
+                                }
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a asp-controller="Devices" asp-action="Index" class="btn btn-outline-secondary form-control">
+                                    Back to List
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

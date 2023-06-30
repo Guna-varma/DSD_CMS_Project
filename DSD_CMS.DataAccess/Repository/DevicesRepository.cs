@@ -10,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace DSD_CMS.DataAccess.Repository
 {
+
     public class DevicesRepository : Repository<Devices>, IDevicesRepository
     {
+
         public ApplicationDbContext _db;
 
         public DevicesRepository(ApplicationDbContext db) : base(db)
@@ -19,10 +21,11 @@ namespace DSD_CMS.DataAccess.Repository
             _db = db;
         }
 
-
         public void Update(Devices devicesDetails)
         {
             _db.devicesList.Update(devicesDetails);
         }
+
     }
+
 }

@@ -1,1 +1,43 @@
-﻿
+﻿@model List<ApplicationImages>
+
+<div class="card box-shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Application Images</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body p-4">
+        <div class="row pb-3">
+            <div class="col-6">
+                <h3 class="text-primary">
+                    Manage Application Images
+                </h3>
+            </div>
+
+            <div class="col-6 text-end">
+                <a asp-controller="ApplicationImages" asp-action="Upsert" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i>  New Application Image
+                </a>
+            </div>
+        </div>
+
+        <table id="appImgData" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Image Type</th>
+                    <th>Name</th>
+                    <th> </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script src="~/js/appImages.js"></script>
+}

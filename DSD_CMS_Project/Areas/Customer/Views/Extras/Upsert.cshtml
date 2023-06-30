@@ -1,0 +1,123 @@
+﻿@model DSD_CMS.Model.Models.Extras
+
+<div class="card box-shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">@(Model.Id != 0 ? "Update" : "Create") Extras</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body p-4">
+        <form method="post" class="row" enctype="multipart/form-data">
+            <input asp-for="Id" hidden />
+            <input asp-for="Thumb" hidden />
+            <input asp-for="Asset" hidden />
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="border p-3" style="color: black">
+                        <div class="row pb-2">
+                            <h3 class="text-primary">@(Model.Id != 0 ? "Update" : "Create") Extras</h3>
+                            <hr />
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <select asp-for="ExtraCategories" class="form-select border-0 shadow">
+                                <option value="">--Select Extra Category--</option>
+                                <option value="Videos">Videos</option>
+                                <option value="MB News">MB News</option>
+                            </select>
+                            <label asp-for="ExtraCategories" class="ms-2"></label>
+                            <span asp-validation-for="ExtraCategories" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Title" class="form-control border-0 shadow" />
+                            <label asp-for="Title" class="ms-2">Title</label>
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="Description" class="form-control border-0 shadow" />
+                            <label asp-for="Description" class="ms-2">Description</label>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        @{
+                            var imageFields = new[]
+                            {
+                        new { Name = "thumbIm", Label = "Thumb", Property = "Thumb", AllowedExtensions = @"\.(png|jpe?g|jpeg)$" },
+                        new { Name = "assetIm", Label = "Asset", Property = "Asset", AllowedExtensions = @"\.(png|jpe?g|jpeg|mp4|pdf)$" }
+                                        };
+                        }
+
+                        @foreach (var imageField in imageFields)
+                        {
+                            <div class="form-floating py-2 col-12">
+                                <input type="file" id="@imageField.Name" name="@imageField.Name" onchange="validateFile(this, '@imageField.Name-preview', '@imageField.AllowedExtensions')" class="form-control border-0 shadow" />
+                                <label for="@imageField.Name" class="ms-2">@imageField.Label</label>
+                                <span asp-validation-for="@imageField.Property" class="text-danger"></span>
+                            </div>
+                            <div id="@imageField.Name-preview" class="mt-2">
+                                <img id="@imageField.Name-preview-img" class="img-fluid" src="" style="max-height: 150px;" />
+                            </div>
+                        }
+
+                        <div class="row pt-2">
+
+                            <div class="col-6 col-md-3">
+                                <button type="submit" class="btn btn-primary form-control">@((Model.Id != 0) ? "Update" : "Create")</button>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                                <a asp-controller="CarModel" asp-action="Index" class="btn btn-outline-secondary form-control">
+                                    Back to List
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function validateFile(input, previewId, allowedExtensions) {
+            const file = input.files[0];
+            const maxFileSize = 20 * 1024 * 1024; // 20MB
+            const allowedExtensionsRegex = new RegExp(allowedExtensions, "i"); // Regular expression for allowed file extensions
+
+            if (!allowedExtensionsRegex.test(file.name)) {
+                alert("Invalid file type. Please insert a valid file type.");
+                input.value = ""; // Reset the file input
+                return;
+            }
+
+            if (file.size > maxFileSize) {
+                alert("File size exceeds the maximum limit of 20MB.");
+                input.value = ""; // Reset the file input
+                return;
+            }
+
+            const preview = document.getElementById(previewId + "-img");
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                preview.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+    </script>
+}
