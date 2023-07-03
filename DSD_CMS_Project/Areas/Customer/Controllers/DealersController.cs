@@ -7,8 +7,12 @@ namespace DSD_CMS_Project.Areas.Customer.Controllers
     public class DealersController : Controller
     {
 
-        private readonly IUnitOfWork repo;
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
 
+        private readonly IUnitOfWork repo;
 
         private readonly IWebHostEnvironment env;
 
@@ -29,7 +33,7 @@ namespace DSD_CMS_Project.Areas.Customer.Controllers
 
             if (dealers == null)
             {
-                return NotFound("Service Product with id: " + id + " is not found!");
+                return NotFound("Dealers with id: " + id + " is not found!");
             }
 
             if (dealers == null && id.HasValue)
@@ -67,7 +71,7 @@ namespace DSD_CMS_Project.Areas.Customer.Controllers
         public IActionResult Index()
         {
             List<Dealers> dealersList = repo.Dealers.GetAll().ToList();
-            return View();
+            return View(dealersList);
         }
 
         [HttpGet]
@@ -92,7 +96,6 @@ namespace DSD_CMS_Project.Areas.Customer.Controllers
             return View(dealersFromDb);
         }
 
-
         [HttpDelete]
         public IActionResult Delete(int? id)
         {
@@ -108,7 +111,5 @@ namespace DSD_CMS_Project.Areas.Customer.Controllers
             return Json(new { success = true, message = "Deleted Successfully!" });
 
         }
-
-
     }
 }
