@@ -6,7 +6,7 @@ function localDataTable() {
     dataTable = $('#carModelData').DataTable({
         "ajax": { url: '/customer/carModel/getAll' },
         "columns": [
-            { data: 'modelName', "width": "20%" },
+            { data: 'modelName', "width": "90%" },
             {
                 data: 'id',
                 "render": function (data) {
@@ -15,7 +15,7 @@ function localDataTable() {
                                     <a onClick=Delete('/customer/carModel/delete/${data}') class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i>Delete</a>
                                 </div>`
                 },
-                "width": "20%"
+                "width": "10%"
             }
         ]
     });
