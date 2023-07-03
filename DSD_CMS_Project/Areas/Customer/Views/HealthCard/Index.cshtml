@@ -4,7 +4,7 @@
     <div class="card-header bg-secondary bg-gradient ml-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="text-white py-2">Health card</h2>
+                <h2 class="text-white py-2">Health Card Details</h2>
             </div>
         </div>
     </div>
@@ -18,30 +18,35 @@
             </div>
 
             @*<div class="col-6 text-end">
-                <a asp-controller="HealthCard" asp-action="Upsert" class="btn btn-primary">
-                    <i class="bi bi-plus-circle"></i>  create Health Card
+                <a asp-controller="InsideInventory" asp-action="Upsert" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i>  New Inside Inventory
                 </a>
             </div>*@
 
+            <div class="col-6 text-end">
+                <a id="exportToExcelBtn" class="btn btn-primary" href="/Customer/HealthCard/ExportToExcel">
+                    <i class="bi bi-file-excel"></i> Export to Excel
+                </a>
+            </div>
+
         </div>
 
-        <table id="hcData" class="table table-bordered table-striped">
+        <table id="hcdata" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>SR#</th>
                     <th>Customer</th>
-                    <th>Mileage</th>
-                    <th>Tread depth</th>
-                    <th>Breakpad</th>
-                    <th>BreakDisc</th>
-                    <th>Battery(Volts)</th>
-                    <th> </th>
-                </tr>
+                    <th>Mileage</th>           
+                    <th>Tread depth</th>       
+                    <th>Break pad</th>         
+                    <th>Break disc</th>        
+                    <th>Battery</th>
+                </tr>                          
             </thead>
         </table>
     </div>
 </div>
 
 @section Scripts{
-    <script src="~/js/healthCard.js"></script>
+    <script src="~/js/hcard.js"></script>
 }

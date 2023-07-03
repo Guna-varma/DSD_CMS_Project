@@ -25,7 +25,7 @@ namespace DSD_CMS.Model.Models
         
         [Required]
         [DisplayName("Mileage")]
-        public double Mileage { get; set; } = 0;
+        public double Mileage { get; set; } = 0.0;
 
         [Required]
         [DisplayName("Tread Depth")]
@@ -40,7 +40,7 @@ namespace DSD_CMS.Model.Models
         public string BreakDisc { get; set; }
 
         [Required]
-        [DisplayName("Battery(Volts)")]
-        public double Battery { get; set; } = 0;
+        [DisplayName("Battery In Volts")]
+        public double Battery { get; set; } = 0.0;
     }
 }
