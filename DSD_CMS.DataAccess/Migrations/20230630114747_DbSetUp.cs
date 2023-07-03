@@ -115,6 +115,7 @@ namespace DSD_CMS.DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
+                    Sr = table.Column<string>(type: "longtext", nullable: false),
                     Customer = table.Column<string>(type: "longtext", nullable: false),
                     Mileage = table.Column<double>(type: "double", nullable: false),
                     TreadDepth = table.Column<string>(type: "longtext", nullable: false),
@@ -195,10 +196,12 @@ namespace DSD_CMS.DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     UserName = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
+                    Email = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     Password = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
                     ConfirmPassword = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
                     FirstName = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
-                    DateOfBirth = table.Column<DateTime>(type: "datetime(6)", maxLength: 30, nullable: false),
+                    LastName = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
+                    DateOfBirth = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Gender = table.Column<string>(type: "varchar(14)", maxLength: 14, nullable: false),
                     Mobile = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false),
                     LandLine = table.Column<string>(type: "varchar(11)", maxLength: 11, nullable: false),
@@ -247,6 +250,7 @@ namespace DSD_CMS.DataAccess.Migrations
                     ContactNo = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false),
                     FaxNo = table.Column<string>(type: "varchar(7)", maxLength: 7, nullable: false),
                     Devices = table.Column<string>(type: "longtext", nullable: false),
+                    Email = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     AddressLine1 = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     AddressLine2 = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     City = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),

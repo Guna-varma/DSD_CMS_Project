@@ -16,6 +16,10 @@ namespace DSD_CMS.Model.Models
         public int Id { get; set; }
 
         [Required]
+        [DisplayName("SR#")]
+        public String Sr { get; set; }
+
+        [Required]
         [DisplayName("Customer")]
         public String Customer { get; set; }
         

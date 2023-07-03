@@ -16,7 +16,7 @@ namespace DSD_CMS.Model.Models
         public int Id { get; set; }
 
         [Required]
-        [DisplayName("ServiceProductName")]
+        [DisplayName("Service Product Name")]
         public string ServiceProductName { get; set; }
 
         [Required]

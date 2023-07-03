@@ -28,7 +28,6 @@ namespace DSD_CMS.Model.Models
         [DisplayName("Description")]
         public string Description { get; set; }
 
-
         [Required]
         [DisplayName("Thumb")]
         [ValidateNever]

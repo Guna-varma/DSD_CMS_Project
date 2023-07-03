@@ -23,16 +23,21 @@ namespace DSD_CMS.Model.Models
         [RegularExpression(@"^[A-Za-z]+$", ErrorMessage = "Only alphabets are allowed.")]
         public string UserName { get; set; }
 
+        [DisplayName("Email")]
+        [RegularExpression(@"^[A-Za-z0-9.@'()/-]+$", ErrorMessage = "Invalid characters are detected!")]
+        [StringLength(100, ErrorMessage = "Email address cannot exceed 100 characters.")]
+        public string Email { get; set; }
+
         [Required(ErrorMessage = "Password is required.")]
         [MaxLength(30, ErrorMessage = "Password must be maximum 30 characters.")]
         [DisplayName("Password")]
-        [RegularExpression(@"^[A-Za-z./@#$%^&*()\s]+$", ErrorMessage = "Only alphabets, dot, slash, @, #, $, %, ^, &, *, ( ), and spaces are allowed.")]
+        [RegularExpression(@"^[A-Za-z0-9./@#$%^&*()\s]+$", ErrorMessage = "Only alphabets, dot, slash, @, #, $, %, ^, &, *, ( ), and spaces are allowed.")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Confirm password is required.")]
         [MaxLength(30, ErrorMessage = "Confirm password must be maximum 30 characters.")]
         [DisplayName("Confirm Password")]
-        [RegularExpression(@"^[A-Za-z./@#$%^&*()\s]+$", ErrorMessage = "Only alphabets, dot, slash, @, #, $, %, ^, &, *, ( ), and spaces are allowed.")]
+        [RegularExpression(@"^[A-Za-z0-9./@#$%^&*()\s]+$", ErrorMessage = "Only alphabets, dot, slash, @, #, $, %, ^, &, *, ( ), and spaces are allowed.")]
         [Compare("Password", ErrorMessage = "The password and confirm password must match.")]
         public string ConfirmPassword { get; set; }
 
@@ -42,10 +47,10 @@ namespace DSD_CMS.Model.Models
         [RegularExpression(@"^[A-Za-z\s]+$", ErrorMessage = "Only alphabets are allowed.")]
         public string FirstName { get; set; }
 
-
         [MaxLength(30)]
         [DisplayName("Last Name")]
         [RegularExpression(@"^[A-Za-z\s]+$", ErrorMessage = "Only alphabets are allowed.")]
+        public string LastName { get; set; }    
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

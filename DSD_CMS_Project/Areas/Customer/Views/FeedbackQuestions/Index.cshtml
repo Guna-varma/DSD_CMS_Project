@@ -1,1 +1,46 @@
-﻿
+﻿@model List<FeedbackQuestions>
+
+<div class="card box-shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Feedback Questions Details</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body p-4">
+
+        <div class="row pb-3">
+            <div class="col-6">
+                <h4 class="text-primary">
+                    Manage Feedback Questions
+                </h4>
+            </div>
+
+            <div class="col-6 text-end">
+                <a asp-controller="FeedbackQuestions" asp-action="Upsert" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i>  New Feedback Question
+            </a>
+            </div>
+        </div>
+
+        <table id="fqData" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Question
+                    </th>
+
+                    <th> </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/js/feedback.js"></script>
+
+}

@@ -1,1 +1,47 @@
-﻿
+﻿@model List<HealthCard>
+
+<div class="card box-shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Health card</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body p-4">
+        <div class="row pb-3">
+            <div class="col-6">
+                <h3 class="text-primary">
+                    Manage Health Card
+                </h3>
+            </div>
+
+            @*<div class="col-6 text-end">
+                <a asp-controller="HealthCard" asp-action="Upsert" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i>  create Health Card
+                </a>
+            </div>*@
+
+        </div>
+
+        <table id="hcData" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>SR#</th>
+                    <th>Customer</th>
+                    <th>Mileage</th>
+                    <th>Tread depth</th>
+                    <th>Breakpad</th>
+                    <th>BreakDisc</th>
+                    <th>Battery(Volts)</th>
+                    <th> </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/healthCard.js"></script>
+}

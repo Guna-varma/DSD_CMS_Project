@@ -37,6 +37,11 @@ namespace DSD_CMS.Model.Models
         [DisplayName("Devices")]
         public string Devices { get; set;}
 
+        [DisplayName("Email")]
+        [RegularExpression(@"^[A-Za-z0-9.@'()/-]+$", ErrorMessage = "Invalid characters are detected!")]
+        [StringLength(100, ErrorMessage = "Email address cannot exceed 100 characters.")]
+        public string Email { get; set; }
+
         [DisplayName("Address Line1")]
         [StringLength(100)]
         public string AddressLine1 { get; set; }

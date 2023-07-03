@@ -1,0 +1,60 @@
+﻿@model DSD_CMS.Model.Models.InsideInventory
+
+<div class="card box-shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">@(Model.Id != 0 ? "Update" : "Create") Inside Inventory</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body p-4">
+        <form method="post" class="row" enctype="multipart/form-data">
+            <input asp-for="Id" hidden />
+            <div class="row">
+                <div class="col-12">
+                    <div class="border p-3" style="color: black">
+
+                        <div class="row pb-2">
+                            <h3 class="text-primary">@(Model.Id != 0 ? "Update" : "Create")  Inside Inventory</h3>
+                            <hr />
+                        </div>
+
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="InsideInventoryName" class="form-control border-0 shadow" />
+                            <label asp-for="InsideInventoryName" class="ms-2"></label>
+                            <span asp-validation-for="InsideInventoryName" class="text-danger"></span>
+                        </div>
+
+                        <div class="row pt-2">
+                            <div class="col-6 col-md-3">
+                                @if (Model.Id != 0)
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Update</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Create</button>
+
+                                }
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a asp-controller="InsideInventory" asp-action="Index" class="btn btn-outline-secondary form-control">
+                                    Back to List
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

@@ -1,1 +1,53 @@
-﻿
+﻿@model List<ServiceProduct>
+
+<div class="card box-shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Service Products Details</h2>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="card-body p-4">
+
+        <div class="row pb-3">
+            <div class="col-6">
+                <h4 class="text-primary">
+                    Manage Service Products
+                </h4>
+            </div>
+
+            @*<div class="col-6 text-end">
+                <a asp-controller="ServiceProduct" asp-action="Upsert" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i>  New Service Product
+                </a>
+            </div>*@
+        </div>
+
+        <table id="spData" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Service Product Name
+                    </th>
+                    <th>
+                        Code
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th> </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/js/serviceProdut.js"></script>
+
+}

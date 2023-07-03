@@ -15,9 +15,9 @@ namespace DSD_CMS_Project.Areas.Customer.Controllers
 
         private readonly IWebHostEnvironment env;
 
-        public InteractiveCheckSheetsController(IUnitOfWork interactiveCSRepository)
+        public InteractiveCheckSheetsController(IUnitOfWork repository)
         {
-            repo = interactiveCSRepository;
+            repo = repository;
         }
 
         public IActionResult Upsert(int? id)
@@ -98,13 +98,13 @@ namespace DSD_CMS_Project.Areas.Customer.Controllers
         [HttpDelete]
         public IActionResult Delete(int? id)
         {
-            var deptToBeDeleted = repo.InteractiveCS.Get(u => u.Id == id);
-            if (deptToBeDeleted == null)
+            var inCSToBeDeleted = repo.InteractiveCS.Get(u => u.Id == id);
+            if (inCSToBeDeleted == null)
             {
                 return Json(new { success = false, message = "Error While Deleting" });
             }
 
-            repo.InteractiveCS.Remove(deptToBeDeleted);
+            repo.InteractiveCS.Remove(inCSToBeDeleted);
             repo.Save();
 
             return Json(new { success = true, message = "Deleted Successfully!" });

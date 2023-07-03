@@ -270,6 +270,10 @@ namespace DSD_CMS.DataAccess.Migrations
                     b.Property<double>("Mileage")
                         .HasColumnType("double");
 
+                    b.Property<string>("Sr")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("TreadDepth")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -395,6 +399,11 @@ namespace DSD_CMS.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.Property<string>("FaxNo")
                         .IsRequired()
                         .HasMaxLength(7)
@@ -457,8 +466,12 @@ namespace DSD_CMS.DataAccess.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<DateTime>("DateOfBirth")
-                        .HasMaxLength(30)
                         .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -474,6 +487,11 @@ namespace DSD_CMS.DataAccess.Migrations
                         .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("varchar(11)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<string>("Mobile")
                         .IsRequired()

@@ -3,19 +3,19 @@ $(document).ready(function () {
 });
 
 function localDataTable() {
-    dataTable = $('#tblData').DataTable({
-        "ajax": { url: '/customer/carmodel/getAll' },
+    dataTable = $('#carModelData').DataTable({
+        "ajax": { url: '/customer/carModel/getAll' },
         "columns": [
-            { data: 'modelname', "width": "25%" },
+            { data: 'modelName', "width": "20%" },
             {
                 data: 'id',
                 "render": function (data) {
                     return `<div class="w-75 btn-group" role="group">
-                                    <a href="/customer/carmodel/Edit?id=${data}" class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i>Edit</a>
-                                    <a onClick=Delete('/customer/carmodel/delete/${data}') class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i>Delete</a>
+                                    <a href="/customer/carModel/upsert?id=${data}" class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i>Edit</a>
+                                    <a onClick=Delete('/customer/carModel/delete/${data}') class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i>Delete</a>
                                 </div>`
                 },
-                "width": "30%"
+                "width": "20%"
             }
         ]
     });
