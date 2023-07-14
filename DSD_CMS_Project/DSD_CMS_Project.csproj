@@ -31,8 +31,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="wwwroot\images\applicationImages\" />
-	  <Folder Include="wwwroot\images\extras\" />
+	  <Folder Include="wwwroot\images\carModel\" />
+	  <Folder Include="wwwroot\images\ApplicationImages\" />
+	  <Folder Include="wwwroot\images\Extras\" />
 	</ItemGroup>
 
 </Project>

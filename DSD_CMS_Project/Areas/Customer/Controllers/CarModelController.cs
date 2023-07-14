@@ -128,6 +128,7 @@ namespace DSD_CMS_Project.Areas.Customer.Controllers
                 {
                     repo.CarModel.Update(carModel); // Update employee details
                     repo.Save(); // Save changes
+                    
                     TempData["success"] = "Updated Successfully!";
                 }
 

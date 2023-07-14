@@ -14,10 +14,12 @@ namespace DSD_CMS.Model.Models
         [Key]
         [DisplayName("Id")]
         [Required]
+
         public int Id { get; set; }
 
         [Required]
         [DisplayName("Model Name")]
+        
         [RegularExpression(@"^[A-Za-z\s]+$", ErrorMessage = "Only alphabets are allowed.")]
         public string ModelName { get; set; }
         

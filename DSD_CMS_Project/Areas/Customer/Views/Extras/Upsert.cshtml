@@ -58,13 +58,33 @@
                         @foreach (var imageField in imageFields)
                         {
                             <div class="form-floating py-2 col-12">
-                                <input type="file" id="@imageField.Name" name="@imageField.Name" onchange="validateFile(this, '@imageField.Name-preview', '@imageField.AllowedExtensions')" class="form-control border-0 shadow" />
-                                <label for="@imageField.Name" class="ms-2">@imageField.Label</label>
-                                <span asp-validation-for="@imageField.Property" class="text-danger"></span>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="@imageField.Name">@imageField.Label:</label> <!-- Add a label for the file input -->
+                                        <div class="input-group">
+                                            <input type="file" id="@imageField.Name" name="@imageField.Name" onchange="showSelectedImage(this, '@imageField.Name-preview-img')" class="form-control border-0 shadow" />
+                                        </div>
+                                        <p class="text-muted">Max size: 1MB. Supported formats: jpg, jpeg, png</p>
+                                    </div>
+                                    <div class="col-md-6 text-end">
+                                        @if (Model.Id != 0 && !string.IsNullOrEmpty(Model.GetType().GetProperty(imageField.Property)?.GetValue(Model) as string))
+                                        {
+                                            <img id="@imageField.Name-preview-img" class="img-fluid" src="@Url.Content(Model.GetType().GetProperty(imageField.Property)?.GetValue(Model) as string)" style="max-height: 200px; max-width: 80%; width: -webkit-fill-available;" />
+                                        }
+                                        else
+                                        {
+                                            <img id="@imageField.Name-preview-img" class="img-fluid" src="#" style="max-height: 200px; max-width: 80%; width: -webkit-fill-available;" />
+                                        }
+                                    </div>
+                                </div>
                             </div>
-                            <div id="@imageField.Name-preview" class="mt-2">
-                                <img id="@imageField.Name-preview-img" class="img-fluid" src="" style="max-height: 150px;" />
-                            </div>
+
+
+
+
+
+
+
                         }
 
                         <div class="row pt-2">
@@ -93,24 +113,24 @@
 
 @section Scripts {
     <script>
-        function validateFile(input, previewId, allowedExtensions) {
+        function showSelectedImage(input, previewId) {
             const file = input.files[0];
-            const maxFileSize = 20 * 1024 * 1024; // 20MB
-            const allowedExtensionsRegex = new RegExp(allowedExtensions, "i"); // Regular expression for allowed file extensions
+            const maxFileSize = 1 * 1024 * 1024; // 1MB
+            const allowedExtensions = /\.(png|jpe?g)$/i; // Regular expression for allowed file extensions
 
-            if (!allowedExtensionsRegex.test(file.name)) {
-                alert("Invalid file type. Please insert a valid file type.");
+            if (!allowedExtensions.test(file.name)) {
+                alert("Invalid file type. Please insert a .png or .jpg file.");
                 input.value = ""; // Reset the file input
                 return;
             }
 
             if (file.size > maxFileSize) {
-                alert("File size exceeds the maximum limit of 20MB.");
+                alert("File size exceeds the maximum limit of 1MB.");
                 input.value = ""; // Reset the file input
                 return;
             }
 
-            const preview = document.getElementById(previewId + "-img");
+            const preview = document.getElementById(previewId);
             const reader = new FileReader();
 
             reader.onload = function (e) {
